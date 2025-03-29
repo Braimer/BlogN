@@ -1,1 +1,1 @@
-# BlogN
+Blog web app. 
