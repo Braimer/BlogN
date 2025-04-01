@@ -1,109 +1,36 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}HOME{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: #2c3e50;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .nav-menu li {
-            display: inline;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .nav-menu a:hover, .nav-menu a.active {
-            background-color: #1abc9c;
-        }
-
-        /* Main Content Styling */
-        main {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .nav-menu {
-                flex-direction: column;
-            }
-
-            .nav-menu a {
-                display: block;
-                text-align: center;
-                padding: 10px;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Style.css">
     {% block extrahead %}{% endblock extrahead %}
 </head>
-<body>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
 
-    <header>
-        <ul class="nav-menu">
-            <li><a href="/home" class="active">Home</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </header>
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+        <div>
+            <h1 class="text-3xl font-bold">Blog</h1><br>
+            <ul class="nav-menu">
+                <li><a href="/home" class="active text-white hover:underline "  >Home</a></li>
+                <li><a href="/contact" class=" text-white hover:underline" >Contact</a></li>
+            </ul>
+
+        </div>
+        <div>
+            <a href="#" class="text-white hover:underline">logout</a>
+        </div>
+    </nav>
 
     <main>
         {% block content %}
         {% endblock content %}
     </main>
 
-    <footer>
-        <p>&copy; 2025 My Cool Website. All rights reserved.</p>
-    </footer>
-
+    
     {% block extra_js %}{% endblock extra_js %}
 </body>
 </html>
