@@ -26,17 +26,17 @@ PostPlane is a sleek web blogging platform built with Django, GraphQl, Vue. Desi
 
 📌 To-Do / Planned Features
 
-Post tagging system
+    Post tagging system
 
-Markdown support for posts
+    Markdown support for posts
 
-User registration and login
+    User registration and login
 
-WYSIWYG post editor
+    WYSIWYG post editor
 
-Comments section
+    Comments section
 
-Blog search functionality
+    Blog search functionality
 
 ✍️ Contributing
 
