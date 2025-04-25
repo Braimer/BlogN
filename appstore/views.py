@@ -1,15 +1,11 @@
 from django.shortcuts import render
-from .models import Project,Tag
+from .models import Tag,Post
+from django.views import generic       #for class based views
 
 # Create your views here.
+
+#home view ,shows posts
 def home(request):
-    projects=Project.objects.all()
-    tags=Tag.objects.all()
-    return render(request,'home.html',{'projects':projects,'tags':tags})
+    posts=Post.objects.all()
+    return render(request,'home.html',{'posts':posts})
 
-def contacts(request):
-    return render(request,"contact.html")
-
-
-def project(request,id):
-    return render(request,"project.html")

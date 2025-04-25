@@ -1,6 +1,6 @@
 🛫 PostPlane — A Clean & Modern Blog Platform
 
-PostPlane is a sleek web blogging platform built with Django and Tailwind CSS. Designed for simplicity and speed, PostPlane lets you publish, manage, and browse blog posts with ease — no turbulence.
+PostPlane is a sleek web blogging platform built with Django, GraphQl, Vue. Designed for simplicity and speed, PostPlane lets you publish, manage, and browse blog posts with ease — no turbulence.
 ✨ Features
 
    📝 Create, edit, and delete blog posts
@@ -9,9 +9,9 @@ PostPlane is a sleek web blogging platform built with Django and Tailwind CSS. D
 
     🔍 Post detail view with clean URLs
 
-    🗂️ Categories and tag support (optional)
+    🗂️ Categories and tag support
 
-    🌙 Modern UI styled with Tailwind CSS
+    🌙 Modern UI
 
     🔐 Admin panel powered by Django
 
@@ -19,9 +19,9 @@ PostPlane is a sleek web blogging platform built with Django and Tailwind CSS. D
 
     Backend: Python, Django
 
-    Frontend: HTML, Tailwind CSS
+    Frontend: Vue
 
-    Database: Mysql
+    Database: sqlite3
 
 
 📌 To-Do / Planned Features
@@ -36,7 +36,7 @@ WYSIWYG post editor
 
 Comments section
 
-    Blog search functionality
+Blog search functionality
 
 ✍️ Contributing
 

@@ -1,21 +1,58 @@
 from django.contrib import admin
-from .models import Tag,Project,ProjectImage
+from .models import Tag,Post,Profile
 # Register your models here.
 
-class ProjectImageInline(admin.TabularInline):
-    model=ProjectImage
-    extra=1
 
-class ProjectAdmin(admin.ModelAdmin):
-    list_display=("title","link")
-    inlines=[ProjectImageInline]
-    search_fields=("title","description")
-    list_filter=("tags",)
-
+#register tag model
+@admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display=("name",)
-    search_fields=("name",)
+    model=Tag
 
-admin.site.register(Tag,TagAdmin)
-admin.site.register(Project,ProjectAdmin)
-admin.site.register(ProjectImage)
+#register profile model
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    model=Profile
+
+
+#registering posts model with admin
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    model=Post
+
+    list_display=(
+        'id',
+        'title',
+        'subtitle',
+        'slug',
+        'published_date',
+        'published',
+    )
+    list_filter=(
+        'published',
+        'published_date',
+    )
+
+    list_editable=(
+        'title',
+        'subtitle',
+        'slug',
+       # 'published_date',
+        'published',
+    )
+
+    search_fields=(
+        'title',
+        'subtitle',
+        'slug',
+        'body',
+    )
+    prepopulated_fields={
+        'slug':(
+            'title',
+            'subtitle',
+        )
+    }
+    date_hierarchy='published_date'
+    save_on_top=True
+
