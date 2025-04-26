@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Profile: {{ profile.user.username }}{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded shadow">
+    <h1 class="text-3xl font-bold">{{ profile.user.username }}</h1>
+    {% if profile.bio %}
+    <p class="text-gray-600 mt-2">{{ profile.bio }}</p>
+    {% endif %}
+    {% if profile.website %}
+    <p class="text-blue-600"><a href="{{ profile.website }}" class="hover:underline">{{ profile.website }}</a></p>
+    {% endif %}
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4">Posts by {{ profile.user.username }}</h2>
+<div class="space-y-4">
+    {% for post in posts %}
+    <div class="bg-white p-4 rounded shadow">
+        <a href="{% url 'detail' slug=post.slug %}" class="text-xl text-blue-600 hover:underline">{{ post.title }}</a>
+    </div>
+    {% empty %}
+    <p>This user has not posted anything yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

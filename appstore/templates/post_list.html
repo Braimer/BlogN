@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}All Posts{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Latest Posts</h1>
+
+<div class="space-y-4">
+    {% for post in posts %}
+    <div class="bg-white p-4 rounded shadow">
+        <a href="{% url 'detail' slug=post.slug %}" class="text-2xl font-semibold text-blue-600 hover:underline">{{ post.title }}</a>
+        <p class="text-gray-600">{{ post.subtitle }}</p>
+        <p class="text-sm mt-1">By 
+            <a class="text-blue-500 hover:underline" href="{% url 'profile' username=post.author.user.username %}">
+                {{ post.author.user.username }}
+            </a> on {{ post.published_date|date:"M d, Y" }}
+        </p>
+    </div>
+    {% empty %}
+    <p>No posts found.</p>
+    {% endfor %}
+</div>
+{% endblock %}
